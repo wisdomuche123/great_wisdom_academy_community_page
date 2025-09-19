@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Wisdom Academy - Join Our Community</title>
+    <meta name="description" content="Join the Great Wisdom Academy global community for coding mentorship, peer support, live Q&A sessions, and study groups. Learn, collaborate, and grow with fellow future developers.">
+    <meta name="keywords" content="coding community, developer forum, coding discord, mentorship program, peer learning, study groups, great wisdom academy community">
+    <meta name="author" content="Great Wisdom Academy Editorial Team">
+
+    <style>
+        /* General Reset & Typography */
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif; 
+            color: #ffffff;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background-color: #0d1a26; 
+            scroll-behavior: smooth; 
+        }
+
+        /* 3D Canvas Styling (Kept for visual appeal) */
+        #three-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            background-color: #0d1a26; 
+        }
+
+        /* Content Container */
+        #content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation Bar */
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(13, 26, 38, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #navbar h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #f7b731; 
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        #navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        #navbar a:hover {
+            color: #f7b731;
+        }
+
+        /* Hero Section (Community Header) */
+        #hero-section {
+            background-color: #1a3044;
+            color: white;
+            padding: 80px 50px 40px;
+            text-align: center;
+            border-bottom: 5px solid #f7b731;
+        }
+        #hero-section h2 {
+            font-size: 3.5em; 
+            margin-bottom: 10px; 
+            color: #f7b731;
+        }
+        #hero-section p {
+            font-size: 1.2em; 
+            color: #cccccc;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- COMMUNITY CONTENT SECTION --- */
+        #community-section {
+            padding: 60px 50px;
+            background-color: #0d1a26;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            padding: 40px;
+            background-color: #1a3044;
+            border-radius: 10px;
+            border: 2px solid #f7b731;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-box h3 {
+            color: #ffffff;
+            font-size: 2.5em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        /* Call-to-Action Button */
+        .cta-button {
+            display: inline-block;
+            background-color: #f7b731;
+            color: #0d1a26;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 25px;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #e5a92a;
+            transform: scale(1.05);
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 50px auto 0 auto;
+            text-align: left;
+        }
+
+        .benefit-card {
+            background-color: #1a3044;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid #f7b731;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .benefit-card h4 {
+            color: #f7b731;
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            line-height: 1.7;
+            color: #cccccc;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0d1a26;
+            color: white;
+            padding: 20px 50px;
+            text-align: center;
+            border-top: 2px solid #f7b731;
+        }
+
+        footer a {
+            color: #f7b731;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="three-canvas"></canvas>
+
+    <div id="content">
+
+        <nav id="navbar">
+            <h1>GREAT WISDOM ACADEMY 🎓</h1>
+            <div>
+                <a href="index.html">Home</a>
+                <a href="mission.html">Mission</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+
+        <section id="hero-section">
+            <h2>The Global Hub for Future Developers</h2>
+            <p>Coding is challenging, but you never have to code alone. Join our global community for mentorship, peer support, and collaboration.</p>
+        </section>
+
+
+        <section id="community-section">
+            
+            <div class="cta-box">
+                <h3>Ready to Connect?</h3>
+                <p>Join thousands of learners, mentors, and developers in our exclusive community channel today. Get instant help, share projects, and find study buddies.</p>
+                <a href="#" class="cta-button" onclick="alert('Welcome! You are now joining our community forum/Discord server.'); return false;">
+                    🚀 Join the Great Wisdom Community Now
+                </a>
+            </div>
+
+            <h2>Why Community is Your Secret Weapon</h2>
+
+            <div class="community-grid">
+                
+                <div class="benefit-card">
+                    <h4>Personalized 1-on-1 Mentorship</h4>
+                    <p>Get dedicated support from **experienced industry developers**. Book one-on-one sessions to review your code, discuss career paths, or troubleshoot complex issues that tutorials can’t solve.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>Active Peer-to-Peer Learning</h4>
+                    <p>Connect with learners at your level, form **study groups**, and collaborate on side projects. Teaching others is one of the best ways to solidify your own knowledge and build your professional network.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>Live Q&A and Exclusive Workshops</h4>
+                    <p>Participate in **weekly live sessions** where instructors deep-dive into advanced topics (like serverless functions or AI integration) and answer your pressing questions in real-time.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h4>Project Feedback & Portfolio Review</h4>
+                    <p>Get crucial **constructive feedback** on your assignments and portfolio projects. This professional critique is essential for polishing your work and making it employer-ready.</p>
+                </div>
+                
+            </div>
+            
+            <p style="margin-top: 60px; font-size: 1.2em; max-width: 800px; margin-left: auto; margin-right: auto; padding-top: 20px; border-top: 1px dashed #f7b731;">
+                **At Great Wisdom Academy, you're not just signing up for a course—you're joining a powerful network dedicated to your success.**
+            </p>
+
+        </section>
+
+
+        <footer>
+            <p>&copy; 2025 Great Wisdom Academy. All rights reserved. | <a href="mailto:info@greatwisdomacademy.edu">wisdomu757@gmail.com</a></p>
+        </footer>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'https://unpkg.com/three@0.158.0/build/three.module.js';
+        import { OrbitControls } from 'https://unpkg.com/three@0.158.0/examples/jsm/controls/OrbitControls.js';
+
+        // --- Setup ---
+        const canvas = document.querySelector('#three-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // --- Lights ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); 
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5);
+        directionalLight.position.set(5, 10, 5).normalize();
+        scene.add(directionalLight);
+
+        // --- 3D Object (Dodecahedron) ---
+        const geometry = new THREE.DodecahedronGeometry(5, 0);
+        
+        const colorGold = new THREE.Color(0xf7b731);
+        const colorBlue = new THREE.Color(0x1a3044);
+
+        const material = new THREE.MeshPhongMaterial({ 
+            color: colorGold.clone(), 
+            shininess: 100
+        }); 
+        const dodecahedron = new THREE.Mesh(geometry, material);
+        dodecahedron.rotation.set(0.5, 0.5, 0); 
+        dodecahedron.name = 'interactiveObject'; 
+        scene.add(dodecahedron);
+        
+        const wireframeMaterial = new THREE.MeshBasicMaterial({
+            color: 0xcccccc,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.15
+        });
+        const wireframe = new THREE.Mesh(geometry, wireframeMaterial);
+        wireframe.rotation.copy(dodecahedron.rotation);
+        scene.add(wireframe);
+
+        // --- Interactivity Setup ---
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+        let isHovered = false;
+
+        // User Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.enableZoom = false; 
+        controls.enablePan = false; 
+
+        camera.position.z = 25; 
+
+        function onMouseMove(event) {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+        }
+
+        // --- Animation Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(scene.children.filter(obj => obj.name === 'interactiveObject'));
+            
+            isHovered = intersects.length > 0;
+            
+            const targetColor = isHovered ? colorBlue : colorGold;
+            material.color.lerp(targetColor, 0.05);
+
+            dodecahedron.rotation.y += 0.003;
+            wireframe.rotation.y += 0.003;
+            controls.update();
+
+            renderer.render(scene, camera);
+        }
+
+        // --- Handle Window Resizing ---
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        }
+
+        // --- Event Listeners ---
+        window.addEventListener('resize', onWindowResize, false);
+        window.addEventListener('mousemove', onMouseMove, false);
+
+        // Start the animation
+        animate();
+    </script>
+</body>
+</html>

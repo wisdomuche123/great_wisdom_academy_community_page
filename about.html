@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Wisdom Academy - Complete Site</title>
+    <meta name="description" content="Great Wisdom Academy offers world-class, project-based online coding education. Learn Python, JavaScript, and career paths in Frontend, Backend, and Full Stack development.">
+    <meta name="keywords" content="coding academy, online learning, python, javascript, frontend vs backend, git tutorial, web development career, great wisdom academy">
+    <meta name="author" content="Great Wisdom Academy Editorial Team">
+
+    <style>
+        /* General Reset & Typography */
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif; 
+            color: #ffffff;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background-color: #0d1a26; 
+            scroll-behavior: smooth; 
+        }
+
+        /* 3D Canvas Styling */
+        #three-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            background-color: #0d1a26; 
+        }
+
+        /* Content Container */
+        #content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation Bar */
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(13, 26, 38, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #navbar h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #f7b731; 
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        #navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        #navbar a:hover {
+            color: #f7b731;
+        }
+
+        /* Hero Section */
+        #hero-section {height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; background: linear-gradient(to top, rgba(13, 26, 38, 1) 0%, rgba(13, 26, 38, 0.2) 60%); padding-bottom: 50px;}
+        #hero-section h2 {font-size: 3.5em; margin-bottom: 10px; color: #f7b731;}
+        #hero-section p {font-size: 1.2em; color: #cccccc;}
+
+        /* --- ABOUT US / MISSION SECTION (Dark Background) --- */
+        #about-section {
+            background-color: #1a3044; 
+            color: white;
+            padding: 60px 50px;
+            text-align: left;
+        }
+        
+        #about-section h2 {
+            font-size: 3em;
+            color: #f7b731;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .about-grid {
+            max-width: 950px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .about-card {
+            padding: 25px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #f7b731;
+            border-radius: 4px;
+        }
+
+        .about-card h3 {
+            color: white;
+            font-size: 1.5em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .about-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .about-card li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .about-card p {
+            line-height: 1.7;
+        }
+
+
+        /* --- ARTICLES/BLOG SECTION (Light Background) --- */
+        #blog-section {
+            background-color: #ffffff; 
+            color: #333333;
+            padding: 60px 50px;
+        }
+        
+        .article-container {
+            max-width: 850px; 
+            margin: 0 auto;
+            border-bottom: 2px dashed #cccccc; 
+            padding-bottom: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .article-container:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        /* Article Typography */
+        .article-container h1 {
+            color: #0d1a26;
+            font-size: 2.8em;
+            border-bottom: 4px solid #f7b731;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .article-container h2 {
+            color: #1a3044;
+            font-size: 2em;
+            margin-top: 40px;
+            border-left: 5px solid #0d1a26;
+            padding-left: 15px;
+        }
+        
+        .article-container p, .article-container ul, .article-container pre {
+            line-height: 1.7;
+            font-size: 1.1em;
+            margin-bottom: 1.5em;
+        }
+
+        .article-meta {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+        }
+        
+        /* Code Block Styling */
+        pre {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 15px;
+            border-left: 3px solid #f7b731;
+            overflow-x: auto;
+            font-family: 'Consolas', monospace;
+            border-radius: 4px;
+        }
+        
+        /* List Styling in Articles */
+        .article-container ul {
+            padding-left: 40px;
+            list-style-type: square;
+        }
+        .article-container li {
+            margin-bottom: 10px;
+        }
+
+        /* Call-to-Action Buttons */
+        .cta-button {
+            display: inline-block;
+            background-color: #f7b731;
+            color: #0d1a26;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #e5a92a;
+            transform: scale(1.05);
+        }
+        
+        /* Article Navigation Header */
+        #article-nav {
+            text-align: center;
+            padding: 20px;
+            background-color: #0d1a26;
+            color: white;
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+        #article-nav a {
+            color: #f7b731;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        #article-nav a:hover {
+            color: white;
+        }
+
+        /* Footer/Contact Section */
+        #contact-section {
+            background-color: #0d1a26;
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+            border-top: 2px solid #f7b731;
+        }
+
+        #contact-section a {
+            color: #f7b731;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="three-canvas"></canvas>
+
+    <div id="content">
+
+        <nav id="navbar">
+            <h1>GREAT WISDOM ACADEMY 🎓</h1>
+            <div>
+                <a href="#hero-section">Home</a>
+                <a href="#about-section">About</a>
+                <a href="#blog-section">Blog</a>
+                <a href="#contact-section">Contact</a>
+            </div>
+        </nav>
+
+        <section id="hero-section">
+            <div id="hero-text">
+                <h2>Excellence in Education. Wisdom for Life.</h2>
+                <p>Start your journey into coding and technology today.</p>
+            </div>
+        </section>
+        
+        <section id="about-section">
+            <h2>About Great Wisdom Academy</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Who We Are</h3>
+                    <p>We are a modern online learning platform dedicated to teaching coding, programming, and technology skills. We believe that knowledge is power and that everyone deserves access to world-class digital education.</p>
+                </div>
+                
+                <div class="about-card">
+                    <h3>Our Mission</h3>
+                    <p>Our mission is simple:</p>
+                    <ul>
+                        <li>To make quality tech education affordable and accessible.</li>
+                        <li>To guide beginners step-by-step into the world of programming.</li>
+                        <li>To prepare students for real careers in software development, design, and innovation.</li>
+                    </ul>
+                    <p>We teach you how to think like a problem solver, how to build projects, and how to grow into a future-ready developer.</p>
+                </div>
+                
+                <div class="about-card" style="grid-column: 1 / span 2;">
+                    <h3>What We Offer</h3>
+                    <p>At Great Wisdom Academy, you’ll find:</p>
+                    <ul>
+                        <li>**Beginner-friendly courses** in HTML, CSS, JavaScript, Python, and more.</li>
+                        <li>**Hands-on projects** that build your portfolio from day one.</li>
+                        <li>**Career-focused tracks** in Frontend, Backend, and Full Stack Development.</li>
+                        <li>**Mentorship and community support** to guide you at every stage.</li>
+                    </ul>
+                    <p style="text-align: center; margin-top: 30px;">
+                        <a href="#blog-section" class="cta-button" style="background-color: #f7b731; color: #0d1a26;">Explore Our Courses & Guides</a>
+                    </p>
+                </div>
+                
+                <div class="about-card">
+                    <h3>Our Vision</h3>
+                    <p>We envision a world where anyone, anywhere can learn coding and technology skills that open doors to opportunity. Whether you are a student, a professional looking to upskill, or a beginner with no tech background, Great Wisdom Academy is your trusted partner for growth.</p>
+                </div>
+                
+                <div class="about-card">
+                    <h3>Why Choose Us?</h3>
+                    <ul>
+                        <li>**Practical Learning:** Learn by building, not just watching.</li>
+                        <li>**Experienced Instructors:** Courses designed by developers who work in the industry.</li>
+                        <li>**Flexible & Accessible:** Learn at your own pace, from any device.</li>
+                        <li>**Global Community:** Connect with learners and mentors around the world.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="blog-section">
+            <h1 style="text-align: center; font-size: 3.5em; color: #0d1a26;">Developer Guides & Articles</h1>
+
+            <div id="article-nav">
+                Quick Jump: 
+                <a href="#article-3">Best Investment</a> |
+                <a href="#article-4">Top 5 Languages</a> |
+                <a href="#article-5">First Website</a> |
+                <a href="#article-1">Frontend vs Backend</a> | 
+                <a href="#article-2">Git and GitHub</a>
+            </div>
+
+            <div class="article-container">
+                <header>
+                    <h1 id="article-3">Why Learning to Code is the Best Investment in Your Future</h1>
+                </header>
+                <p>The world runs on code. From your phone to your bank account, almost everything depends on software. Learning to code isn’t just a career skill — it’s a life skill.</p>
+
+                <h2>1. Coding Improves Problem-Solving Skills</h2>
+                <p>When you learn programming, you learn to break down big problems into smaller ones. This mindset applies beyond computers — it helps in business, school, and everyday life.</p>
+
+                <h2>2. Coding Creates Career Opportunities</h2>
+                <ul>
+                    <li>High demand for developers in almost every industry.</li>
+                    <li>Opportunities in freelancing, startups, and global companies.</li>
+                    <li>Remote work options are growing.</li>
+                </ul>
+
+                <h2>3. Coding Builds Creativity</h2>
+                <p>Coding is like digital art. You can build websites, apps, games, and even AI systems. You’re not just consuming technology — you’re **creating it**.</p>
+
+                <h2>4. Coding is for Everyone</h2>
+                <p>You don’t need a degree in computer science. Many successful developers started with free tutorials and online courses. If you have **curiosity and persistence**, you can learn.</p>
+                
+                <h2>Conclusion</h2>
+                <p>Learning to code is like learning to read and write for the digital age. At Great Wisdom Academy, we’re here to make sure you don’t just learn code — you master it.</p>
+                <a href="#" class="cta-button">Start Mastering Code Today</a>
+            </div>
+            
+            <div class="article-container">
+                <header>
+                    <h1 id="article-4">Top 5 Programming Languages Every Beginner Should Learn</h1>
+                </header>
+                <p>With hundreds of programming languages, beginners often ask: Which language should I start with? Here are the top 5 beginner-friendly choices.</p>
+
+                <h2>1. Python</h2>
+                <p>Simple, readable, powerful. Used in web apps, data science, AI, and automation. **Great first language.**</p>
+
+                <h2>2. JavaScript</h2>
+                <p>The language of the web. Used for frontend and backend (Node.js). **Essential for all web developers.**</p>
+                
+                <h2>3. HTML & CSS (Not programming, but essential)</h2>
+                <p>HTML provides structure, and CSS provides design & style. This is the **foundation of every website**.</p>
+                
+                <h2>4. Java</h2>
+                <p>Used in Android apps and enterprise software. It enforces strong object-oriented principles, making it great for **big, complex projects**.</p>
+                
+                <h2>5. C#</h2>
+                <p>Microsoft’s language for apps, games (Unity), and cloud services. It is beginner-friendly but also powerfully versatile.</p>
+
+                <h2>Conclusion</h2>
+                <p>Start with Python or JavaScript, then expand. The best language depends on your goals, but the important step is: **start coding today**.</p>
+            </div>
+            
+            <div class="article-container">
+                <header>
+                    <h1 id="article-5">How to Build Your First Website (Step by Step)</h1>
+                </header>
+                <p>Your first website is a milestone. Let’s go step by step and build a simple site.</p>
+
+                <h2>Step 1: Create a Project Folder</h2>
+                <p>Make a folder on your computer and place three files inside:</p>
+                <pre><code>my-website/
+   index.html
+   style.css
+   script.js</code></pre>
+
+                <h2>Step 2: Write Basic HTML</h2>
+                <p>The HTML links your CSS and JavaScript files and contains the page content:</p>
+                <pre><code>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;
+  &lt;title&gt;My First Website&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;&lt;body&gt;
+  &lt;h1&gt;Hello, World!&lt;/h1&gt;
+  &lt;p&gt;Welcome to my first website.&lt;/p&gt;
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;</code></pre>
+
+                <h2>Step 3: Add Some CSS</h2>
+                <p>Save this as `style.css` to define the look and feel:</p>
+                <pre><code>body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f9f9f9;
+}
+h1 {
+  color: #007acc;
+}</code></pre>
+
+                <h2>Step 4: Add Some JavaScript</h2>
+                <p>Save this as `script.js` to add interactivity (in this case, a simple alert):</p>
+                <pre><code>alert("Welcome to my first website!");</code></pre>
+
+                <h2>Step 5: Open in Browser</h2>
+                <p>Double-click **index.html**. You’ve built your first website! 🎉</p>
+                
+                <h2>Conclusion</h2>
+                <p>Web development starts simple but grows quickly. This is just the beginning — soon you’ll add interactivity, forms, animations, and even databases.</p>
+                <a href="#" class="cta-button">Join Our Web Development Track</a>
+            </div>
+            
+            <div class="article-container">
+                <header>
+                    <h1 id="article-1">Frontend vs Backend vs Full Stack: Which Path Should You Choose?</h1>
+                </header>
+                <p>When you decide to become a developer, one of the first questions is: What type of developer should I be? This guide explains the differences between **frontend** (user interface), **backend** (data and logic), and **full stack** (both), helping you pick the right track for your career goals.</p>
+
+                <p style="font-weight: bold; margin-top: 20px;">Key Takeaway:</p>
+                <ul>
+                    <li>**Frontend:** Loves visuals and design (HTML, CSS, JavaScript).</li>
+                    <li>**Backend:** Loves logic, data, and problem-solving (Python, Java, Node.js).</li>
+                    <li>**Full Stack:** Loves versatility and building everything (A mix of both).</li>
+                </ul>
+                <a href="#" class="cta-button">Read the Full Career Path Article</a>
+            </div>
+
+            <div class="article-container">
+                <header>
+                    <h1 id="article-2">The Ultimate Beginner’s Guide to Git and GitHub</h1>
+                </header>
+                <p>Git is a **version control system** that saves snapshots of your work (like an undo button for your entire project). GitHub is the **online platform** where developers share and collaborate. This guide explains the essential commands:</p>
+                <pre><code>git init        # Start a local repo
+git add .       # Stage files
+git commit -m "commit message" # Save snapshot
+git push        # Send changes to GitHub</code></pre>
+                <p>Git and GitHub are must-have tools for every developer. Our courses include Git from day one so you never lose progress.</p>
+                <a href="#" class="cta-button" style="background-color: #1a3044; color: white;">Explore Our Git & Version Control Course</a>
+            </div>
+
+        </section>
+
+        <section id="contact-section">
+            <h2>Join Us Today</h2>
+            <p>At Great Wisdom Academy, we don’t just teach code. We build confidence, careers, and creators of tomorrow.</p>
+            <p>Admissions Email: <a href="mailto:info@greatwisdomacademy.edu">info@greatwisdomacademy.edu</a> | Phone: **(123) 456-7890**</p>
+            <p>&copy; 2025 Great Wisdom Academy. All rights reserved.</p>
+        </section>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'https://unpkg.com/three@0.158.0/build/three.module.js';
+        import { OrbitControls } from 'https://unpkg.com/three@0.158.0/examples/jsm/controls/OrbitControls.js';
+
+        // --- Setup ---
+        const canvas = document.querySelector('#three-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // --- Lights ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); 
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5);
+        directionalLight.position.set(5, 10, 5).normalize();
+        scene.add(directionalLight);
+
+        // --- 3D Object (Dodecahedron) ---
+        const geometry = new THREE.DodecahedronGeometry(5, 0);
+        
+        const colorGold = new THREE.Color(0xf7b731);
+        const colorBlue = new THREE.Color(0x1a3044);
+
+        const material = new THREE.MeshPhongMaterial({ 
+            color: colorGold.clone(), 
+            shininess: 100
+        }); 
+        const dodecahedron = new THREE.Mesh(geometry, material);
+        dodecahedron.rotation.set(0.5, 0.5, 0); 
+        dodecahedron.name = 'interactiveObject'; 
+        scene.add(dodecahedron);
+        
+        const wireframeMaterial = new THREE.MeshBasicMaterial({
+            color: 0xcccccc,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.15
+        });
+        const wireframe = new THREE.Mesh(geometry, wireframeMaterial);
+        wireframe.rotation.copy(dodecahedron.rotation);
+        scene.add(wireframe);
+
+        // --- Interactivity Setup ---
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+        let isHovered = false;
+
+        // User Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.enableZoom = false; 
+        controls.enablePan = false; 
+
+        camera.position.z = 25; 
+
+        function onMouseMove(event) {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+        }
+
+        // --- Animation Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(scene.children.filter(obj => obj.name === 'interactiveObject'));
+            
+            isHovered = intersects.length > 0;
+            
+            const targetColor = isHovered ? colorBlue : colorGold;
+            material.color.lerp(targetColor, 0.05);
+
+            dodecahedron.rotation.y += 0.003;
+            wireframe.rotation.y += 0.003;
+            controls.update();
+
+            renderer.render(scene, camera);
+        }
+
+        // --- Handle Window Resizing ---
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        }
+
+        // --- Event Listeners ---
+        window.addEventListener('resize', onWindowResize, false);
+        window.addEventListener('mousemove', onMouseMove, false);
+
+        // Start the animation
+        animate();
+    </script>
+</body>
+</html>

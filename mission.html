@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Wisdom Academy - Our Mission & Vision</title>
+    <meta name="description" content="Discover Great Wisdom Academy's mission: to make world-class tech education accessible to everyone, foster problem-solving skills, and prepare learners for future-ready careers in programming and innovation.">
+    <meta name="keywords" content="mission statement, vision, tech education accessibility, problem solving, future of technology, coding careers, global learning hub">
+    <meta name="author" content="Great Wisdom Academy Editorial Team">
+
+    <style>
+        /* General Reset & Typography */
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif; 
+            color: #ffffff;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background-color: #0d1a26; 
+            scroll-behavior: smooth; 
+        }
+
+        /* 3D Canvas Styling (Kept for visual appeal) */
+        #three-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            background-color: #0d1a26; 
+        }
+
+        /* Content Container */
+        #content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation Bar */
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(13, 26, 38, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #navbar h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #f7b731; 
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        #navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        #navbar a:hover {
+            color: #f7b731;
+        }
+
+        /* Hero Section (Retained) */
+        #hero-section {height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; background: linear-gradient(to top, rgba(13, 26, 38, 1) 0%, rgba(13, 26, 38, 0.2) 60%); padding-bottom: 50px;}
+        #hero-section h2 {font-size: 3.5em; margin-bottom: 10px; color: #f7b731;}
+        #hero-section p {font-size: 1.2em; color: #cccccc;}
+
+        /* --- MISSION & VISION SECTION --- */
+        #mission-vision-section {
+            background-color: #1a3044; /* Darker blue background */
+            color: white;
+            padding: 60px 50px;
+            text-align: left;
+        }
+        
+        #mission-vision-section h2 {
+            font-size: 3.5em;
+            color: #f7b731;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .mission-intro {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 1.8;
+            border-bottom: 3px solid rgba(247, 183, 49, 0.5);
+            padding-bottom: 30px;
+        }
+        
+        .mission-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .section-card {
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background-color: #0d1a26;
+        }
+
+        .section-card h3 {
+            font-size: 2.2em;
+            color: white;
+            border-bottom: 3px solid #f7b731;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .section-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .section-card li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            display: flex;
+        }
+
+        .section-card li::before {
+            content: '★';
+            color: #f7b731;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .impact-box {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: rgba(247, 183, 49, 0.15);
+            border-left: 5px solid #f7b731;
+            font-style: italic;
+            color: #fff;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background-color: #f7b731;
+            color: #0d1a26;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 40px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #e5a92a;
+            transform: scale(1.05);
+        }
+
+        /* Footer/Contact Section (Retained) */
+        #contact-section {
+            background-color: #0d1a26;
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+            border-top: 2px solid #f7b731;
+        }
+
+        #contact-section a {
+            color: #f7b731;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 800px) {
+            .mission-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="three-canvas"></canvas>
+
+    <div id="content">
+
+        <nav id="navbar">
+            <h1>GREAT WISDOM ACADEMY 🎓</h1>
+            <div>
+                <a href="#hero-section">Home</a>
+                <a href="mission.html">Mission & Vision</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a> 
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+
+        <section id="hero-section">
+            <div id="hero-text">
+                <h2>Excellence in Education. Wisdom for Life.</h2>
+                <p>Start your journey into coding and technology today.</p>
+            </div>
+        </section>
+        
+        <section id="mission-vision-section">
+            <h2>Our Mission & Vision: Sapientia et Veritas</h2>
+            
+            <div class="mission-intro">
+                <p>At Great Wisdom Academy, we believe that education is more than just knowledge — it is the foundation for growth, opportunity, and innovation. Our mission is to **empower learners everywhere** with the skills they need to thrive in today’s digital world.</p>
+            </div>
+
+            <div class="mission-content">
+                <div class="section-card">
+                    <h3>Our Core Mission: What We Do</h3>
+                    <p>Our mission is simple yet powerful: to transform beginners into confident developers and innovators who can contribute meaningfully to society.</p>
+                    <ul>
+                        <li>To make **technology education accessible** to everyone, regardless of background or location.</li>
+                        <li>To teach not only coding skills but also **problem-solving and creativity**.</li>
+                        <li>To prepare learners for **real-world careers** in programming, software development, and beyond.</li>
+                    </ul>
+                    <div class="impact-box">
+                        This mission is about opening doors to opportunity: helping students secure better jobs and empowering entrepreneurs to build startups.
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <h3>Our Vision: The Future We Are Building</h3>
+                    <p>Our vision goes beyond teaching coding. We dream of a world where every learner has the tools and knowledge to thrive in the digital age.</p>
+                    <ul>
+                        <li>A future where **technology education is accessible to all**, not just the privileged.</li>
+                        <li>A global community of learners who are **creators, not just consumers** of technology.</li>
+                        <li>A new generation of developers who use their skills to **solve real-world problems** and drive innovation.</li>
+                    </ul>
+                    <div class="impact-box">
+                        We envision Great Wisdom Academy as a global hub for innovation, creativity, and opportunity for underserved communities worldwide.
+                    </div>
+                </div>
+                
+                <div class="section-card" style="grid-column: 1 / span 2; margin-top: 20px;">
+                    <h3>How We Fulfill Our Mission & Inspire Growth</h3>
+                    <p>We put our mission into action and ensure students are prepared for lifelong success:</p>
+                    <ul style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                        <li style="width: 45%;">**Beginner-friendly courses** that anyone can follow.</li>
+                        <li style="width: 45%;">**Project-based learning** to build real applications.</li>
+                        <li style="width: 45%;">**Mentorship and community support** for continuous growth.</li>
+                        <li style="width: 45%;">**Career guidance** and certifications for success.</li>
+                    </ul>
+                    <p style="text-align: center; margin-top: 30px;">
+                        <a href="#" class="cta-button">Join Our Mission: Start Your Journey Today</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="mission-intro" style="margin-top: 50px; border-top: 2px dashed rgba(255, 255, 255, 0.3); border-bottom: none; padding-top: 30px;">
+                <p>Our mission drives everything we do. When you learn with us, you’re not just gaining skills. **You’re joining a mission to shape the future of technology** — and your future begins here.</p>
+            </div>
+
+        </section>
+
+
+        <section id="contact-section">
+            <h2>Connect With Us</h2>
+            <p>Admissions Email: <a href="mailto:info@greatwisdomacademy.edu">wisdomu757@gmail.com</a> | Phone: **(+234) 08133041743**</p>
+            <p>&copy; 2025 Great Wisdom Academy. All rights reserved.</p>
+        </section>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'https://unpkg.com/three@0.158.0/build/three.module.js';
+        import { OrbitControls } from 'https://unpkg.com/three@0.158.0/examples/jsm/controls/OrbitControls.js';
+
+        // --- Setup ---
+        const canvas = document.querySelector('#three-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // --- Lights ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); 
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5);
+        directionalLight.position.set(5, 10, 5).normalize();
+        scene.add(directionalLight);
+
+        // --- 3D Object (Dodecahedron) ---
+        const geometry = new THREE.DodecahedronGeometry(5, 0);
+        
+        const colorGold = new THREE.Color(0xf7b731);
+        const colorBlue = new THREE.Color(0x1a3044);
+
+        const material = new THREE.MeshPhongMaterial({ 
+            color: colorGold.clone(), 
+            shininess: 100
+        }); 
+        const dodecahedron = new THREE.Mesh(geometry, material);
+        dodecahedron.rotation.set(0.5, 0.5, 0); 
+        dodecahedron.name = 'interactiveObject'; 
+        scene.add(dodecahedron);
+        
+        const wireframeMaterial = new THREE.MeshBasicMaterial({
+            color: 0xcccccc,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.15
+        });
+        const wireframe = new THREE.Mesh(geometry, wireframeMaterial);
+        wireframe.rotation.copy(dodecahedron.rotation);
+        scene.add(wireframe);
+
+        // --- Interactivity Setup ---
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+        let isHovered = false;
+
+        // User Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.enableZoom = false; 
+        controls.enablePan = false; 
+
+        camera.position.z = 25; 
+
+        function onMouseMove(event) {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+        }
+
+        // --- Animation Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(scene.children.filter(obj => obj.name === 'interactiveObject'));
+            
+            isHovered = intersects.length > 0;
+            
+            const targetColor = isHovered ? colorBlue : colorGold;
+            material.color.lerp(targetColor, 0.05);
+
+            dodecahedron.rotation.y += 0.003;
+            wireframe.rotation.y += 0.003;
+            controls.update();
+
+            renderer.render(scene, camera);
+        }
+
+        // --- Handle Window Resizing ---
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        }
+
+        // --- Event Listeners ---
+        window.addEventListener('resize', onWindowResize, false);
+        window.addEventListener('mousemove', onMouseMove, false);
+
+        // Start the animation
+        animate();
+    </script>
+</body>
+</html>

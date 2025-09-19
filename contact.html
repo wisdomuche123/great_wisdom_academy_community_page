@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Wisdom Academy - Contact Us</title>
+    <meta name="description" content="Contact Great Wisdom Academy for course inquiries, mentorship support, admissions, or career guidance. Get in touch via our contact form, email, or phone.">
+    <meta name="keywords" content="contact academy, coding school phone number, admissions email, tech mentorship support, career guidance, great wisdom academy contact">
+    <meta name="author" content="Great Wisdom Academy Editorial Team">
+
+    <style>
+        /* General Reset & Typography */
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif; 
+            color: #ffffff;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background-color: #0d1a26; 
+            scroll-behavior: smooth; 
+        }
+
+        /* 3D Canvas Styling (Kept for visual appeal) */
+        #three-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            background-color: #0d1a26; 
+        }
+
+        /* Content Container */
+        #content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation Bar */
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(13, 26, 38, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #navbar h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #f7b731; 
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        #navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        #navbar a:hover {
+            color: #f7b731;
+        }
+
+        /* Hero Section (Customized for Contact page) */
+        #hero-section {
+            background-color: #1a3044;
+            color: white;
+            padding: 80px 50px 40px;
+            text-align: center;
+            border-bottom: 5px solid #f7b731;
+        }
+        #hero-section h2 {
+            font-size: 3.5em; 
+            margin-bottom: 10px; 
+            color: #f7b731;
+        }
+        #hero-section p {
+            font-size: 1.2em; 
+            color: #cccccc;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- CONTACT FORM SECTION --- */
+        #contact-section {
+            padding: 60px 50px;
+            background-color: #0d1a26;
+            color: white;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .contact-form-container {
+            flex: 1;
+            max-width: 600px;
+            background-color: #1a3044;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-form-container h3 {
+            color: #f7b731;
+            font-size: 2em;
+            margin-top: 0;
+            border-bottom: 2px solid #f7b731;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #cccccc;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #445566;
+            border-radius: 5px;
+            background-color: #0d1a26;
+            color: white;
+            font-family: inherit;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #f7b731;
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #f7b731;
+            color: #0d1a26;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .submit-button:hover {
+            background-color: #e5a92a;
+            transform: translateY(-2px);
+        }
+
+        /* --- CONTACT INFO SIDEBAR --- */
+        .contact-info-sidebar {
+            flex: 1;
+            max-width: 350px;
+            padding: 40px;
+            background-color: #0d1a26;
+            border: 1px solid #283a4d;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .contact-info-sidebar h3 {
+            color: #ffffff;
+            font-size: 1.8em;
+            margin-top: 0;
+            border-bottom: 2px solid #cccccc;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        .info-item {
+            margin-bottom: 30px;
+        }
+
+        .info-item h4 {
+            color: #f7b731;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+
+        .info-item p, .info-item a {
+            color: #cccccc;
+            text-decoration: none;
+            line-height: 1.5;
+            font-size: 1.1em;
+        }
+
+        .info-item a:hover {
+            color: #f7b731;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d1a26;
+            color: white;
+            padding: 20px 50px;
+            text-align: center;
+            border-top: 2px solid #f7b731;
+        }
+
+        footer a {
+            color: #f7b731;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            #contact-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-form-container, .contact-info-sidebar {
+                max-width: 100%;
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="three-canvas"></canvas>
+
+    <div id="content">
+
+        <nav id="navbar">
+            <h1>GREAT WISDOM ACADEMY 🎓</h1>
+            <div>
+                <a href="index.html">Home</a>
+                <a href="mission.html">Mission</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="#contact-section">Contact</a>
+            </div>
+        </nav>
+
+        <section id="hero-section">
+            <h2>Contact Great Wisdom Academy</h2>
+            <p>Ready to start your journey, or just have a few questions? We're here to help you take the next step.</p>
+        </section>
+
+
+        <section id="contact-section">
+            
+            <div class="contact-form-container">
+                <h3>Send Us a Message</h3>
+                
+                <form action="#" method="POST" onsubmit="alert('Thank you! Your message has been received by Great Wisdom Academy. We will be in touch shortly.'); return false;">
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">I am interested in...</label>
+                        <select id="subject" name="subject" required>
+                            <option value="" disabled selected>Select an Inquiry Type</option>
+                            <option value="Admissions">Admissions & Enrollment</option>
+                            <option value="CourseInfo">Course Details & Syllabus</option>
+                            <option value="Mentorship">Mentorship & Support</option>
+                            <option value="Career">Career Guidance & Job Prep</option>
+                            <option value="General">General Inquiry</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Send Inquiry</button>
+                </form>
+            </div>
+
+            <div class="contact-info-sidebar">
+                <h3>Connect Directly</h3>
+                
+                <div class="info-item">
+                    <h4>Admissions & Inquiries</h4>
+                    <p>Email: <a href="mailto:info@greatwisdomacademy.edu">wisdomu757@gmail.com</a></p>
+                    <p>This is the best way to ask about courses, pricing, or scholarships.</p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>Technical & Mentorship Support</h4>
+                    <p>Email: <a href="mailto:support@greatwisdomacademy.edu">wisdomu757@gmail.com</a></p>
+                    <p>For current students needing technical help or mentorship scheduling.</p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>Phone</h4>
+                    <p>Call us during business hours (Mon-Fri, 9am-5pm EST):</p>
+                    <p><strong>(234) 08133041743</strong></p>
+                </div>
+
+                <div class="info-item">
+                    <h4>Community</h4>
+                    <p>Join our exclusive Discord server to connect with peers and mentors!</p>
+                    <a href="#">Join Our Community (Link)</a>
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Great Wisdom Academy. All rights reserved. | <a href="mailto:info@greatwisdomacademy.edu">info@greatwisdomacademy.edu</a></p>
+        </footer>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'https://unpkg.com/three@0.158.0/build/three.module.js';
+        import { OrbitControls } from 'https://unpkg.com/three@0.158.0/examples/jsm/controls/OrbitControls.js';
+
+        // --- Setup ---
+        const canvas = document.querySelector('#three-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // --- Lights ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); 
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5);
+        directionalLight.position.set(5, 10, 5).normalize();
+        scene.add(directionalLight);
+
+        // --- 3D Object (Dodecahedron) ---
+        const geometry = new THREE.DodecahedronGeometry(5, 0);
+        
+        const colorGold = new THREE.Color(0xf7b731);
+        const colorBlue = new THREE.Color(0x1a3044);
+
+        const material = new THREE.MeshPhongMaterial({ 
+            color: colorGold.clone(), 
+            shininess: 100
+        }); 
+        const dodecahedron = new THREE.Mesh(geometry, material);
+        dodecahedron.rotation.set(0.5, 0.5, 0); 
+        dodecahedron.name = 'interactiveObject'; 
+        scene.add(dodecahedron);
+        
+        const wireframeMaterial = new THREE.MeshBasicMaterial({
+            color: 0xcccccc,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.15
+        });
+        const wireframe = new THREE.Mesh(geometry, wireframeMaterial);
+        wireframe.rotation.copy(dodecahedron.rotation);
+        scene.add(wireframe);
+
+        // --- Interactivity Setup ---
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+        let isHovered = false;
+
+        // User Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.enableZoom = false; 
+        controls.enablePan = false; 
+
+        camera.position.z = 25; 
+
+        function onMouseMove(event) {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+        }
+
+        // --- Animation Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(scene.children.filter(obj => obj.name === 'interactiveObject'));
+            
+            isHovered = intersects.length > 0;
+            
+            const targetColor = isHovered ? colorBlue : colorGold;
+            material.color.lerp(targetColor, 0.05);
+
+            dodecahedron.rotation.y += 0.003;
+            wireframe.rotation.y += 0.003;
+            controls.update();
+
+            renderer.render(scene, camera);
+        }
+
+        // --- Handle Window Resizing ---
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        }
+
+        // --- Event Listeners ---
+        window.addEventListener('resize', onWindowResize, false);
+        window.addEventListener('mousemove', onMouseMove, false);
+
+        // Start the animation
+        animate();
+    </script>
+</body>
+</html>

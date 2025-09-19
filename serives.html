@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Wisdom Academy - Our Services</title>
+    <meta name="description" content="Explore Great Wisdom Academy's comprehensive services: online coding courses, full career tracks (Frontend, Backend, Full Stack), 1-on-1 mentorship, project-based learning, and career support for tech jobs.">
+    <meta name="keywords" content="coding courses, full stack track, programming mentorship, career support, project based learning, online certifications, java, python, javascript">
+    <meta name="author" content="Great Wisdom Academy Editorial Team">
+
+    <style>
+        /* General Reset & Typography */
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif; 
+            color: #ffffff;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background-color: #0d1a26; 
+            scroll-behavior: smooth; 
+        }
+
+        /* 3D Canvas Styling (Kept for visual appeal) */
+        #three-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            background-color: #0d1a26; 
+        }
+
+        /* Content Container */
+        #content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation Bar */
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(13, 26, 38, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #navbar h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #f7b731; 
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        #navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        #navbar a:hover {
+            color: #f7b731;
+        }
+
+        /* Hero Section */
+        #hero-section {height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; background: linear-gradient(to top, rgba(13, 26, 38, 1) 0%, rgba(13, 26, 38, 0.2) 60%); padding-bottom: 50px;}
+        #hero-section h2 {font-size: 3.5em; margin-bottom: 10px; color: #f7b731;}
+        #hero-section p {font-size: 1.2em; color: #cccccc;}
+
+        /* --- SERVICES SECTION (Replaces Mission/About for this file) --- */
+        #services-section {
+            background-color: #1a3044; /* Darker blue background */
+            color: white;
+            padding: 60px 50px;
+            text-align: center;
+        }
+        
+        #services-section h2 {
+            font-size: 3em;
+            color: #f7b731;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        #services-section p {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            line-height: 1.8;
+            font-size: 1.1em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 30px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background-color: #0d1a26; /* Navy background for cards */
+            padding: 30px;
+            border-radius: 8px;
+            text-align: left;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            border-top: 5px solid #f7b731; /* Gold accent */
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background-color: #0d1a26; 
+        }
+
+        .service-card h3 {
+            color: #f7b731;
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-card li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .service-card li::before {
+            content: '✅';
+            margin-right: 10px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #f7b731; 
+        }
+
+        .outcome {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(247, 183, 49, 0.1);
+            border-left: 3px solid #f7b731;
+            font-style: italic;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background-color: #f7b731;
+            color: #0d1a26;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 40px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #e5a92a;
+            transform: scale(1.05);
+        }
+
+        /* Footer/Contact Section */
+        #contact-section {
+            background-color: #0d1a26;
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+            border-top: 2px solid #f7b731;
+        }
+
+        #contact-section a {
+            color: #f7b731;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="three-canvas"></canvas>
+
+    <div id="content">
+
+        <nav id="navbar">
+            <h1>GREAT WISDOM ACADEMY 🎓</h1>
+            <div>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="serives.html">Services</a>
+                <a href="blog.html">Blog</a> <a href="#contact-section">Contact</a>
+            </div>
+        </nav>
+
+        <section id="hero-section">
+            <div id="hero-text">
+                <h2>Your Clear Pathway to a Career in Technology</h2>
+                <p>We provide more than lessons — we provide a clear path to becoming a professional developer.</p>
+            </div>
+        </section>
+        
+        <section id="services-section">
+            <h2>Our Services: From Beginner to Professional</h2>
+            <p>At Great Wisdom Academy, our services are designed to meet you where you are and take you to the next level. We combine structured learning with **real-world application** and **unwavering support**.</p>
+            
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <h3>1. Online Coding Courses</h3>
+                    <p>Structured, interactive, and beginner-friendly courses covering the essential languages:</p>
+                    <ul>
+                        <li>Web Foundation: **HTML, CSS, JavaScript**</li>
+                        <li>General Programming: **Python** (for Data Science, AI, Automation)</li>
+                        <li>Enterprise & Apps: **Java & C#** (for Software and Enterprise Systems)</li>
+                        <li>Modern Tools: **Git, GitHub, VS Code**</li>
+                    </ul>
+                    <div class="outcome">
+                        💡 Outcome: Students can build fully functional websites and applications on their own.
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3>2. Full Career Tracks</h3>
+                    <p>Clear, portfolio-focused learning paths for specific job roles:</p>
+                    <ul>
+                        <li>**Frontend Development Track:** Master UI, UX, and responsive design.</li>
+                        <li>**Backend Development Track:** Master servers, databases, and APIs.</li>
+                        <li>**Full Stack Development Track:** Become a versatile, end-to-end developer.</li>
+                    </ul>
+                    <div class="outcome">
+                        💡 Outcome: You graduate with a strong portfolio showcasing real-world projects to employers.
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3>3. Project-Based Learning</h3>
+                    <p>Theory is never enough. We ensure you **learn by doing** with practical projects:</p>
+                    <ul>
+                        <li>Personal portfolio website</li>
+                        <li>E-commerce store clone</li>
+                        <li>Blog with a CMS</li>
+                        <li>AI-powered chatbot</li>
+                    </ul>
+                    <div class="outcome">
+                        💡 Outcome: You gain job-ready experience by completing real-world, industry-relevant applications.
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <h3>4. Mentorship & Community</h3>
+                    <p>You don’t have to code alone. Get guided support every step of the way:</p>
+                    <ul>
+                        <li>**1-on-1 Mentorship** with industry experts.</li>
+                        <li>Community forums and study groups for collaboration.</li>
+                        <li>Live Q&A sessions for fast answers.</li>
+                    </ul>
+                    <div class="outcome">
+                        💡 Outcome: Students stay motivated, get answers fast, and grow their skills faster.
+                    </div>
+                </div>
+
+                <div class="service-card" style="grid-column: span 2;">
+                    <h3>5. Career Support & Certifications</h3>
+                    <p>We help you successfully transition from learner to earner. Our services go beyond teaching code:</p>
+                    <ul style="display: flex; justify-content: space-around; width: 80%; margin: 0 auto; margin-top: 20px;">
+                        <li>Resume and LinkedIn profile reviews</li>
+                        <li>Mock technical interviews</li>
+                        <li>Freelancing guidance & job search strategies</li>
+                        <li>Recognized **Certificates** upon completion</li>
+                    </ul>
+                    <div class="outcome" style="max-width: 90%; margin: 20px auto;">
+                        💡 Outcome: You'll be fully prepared and certified to apply for tech jobs or start freelancing online.
+                    </div>
+                </div>
+            </div>
+
+            <p style="margin-top: 50px; font-size: 1.2em; font-weight: bold;">
+                Why Choose Our Services? Beginner-friendly but powerful, affordable and flexible, with practical, project-based learning.
+            </p>
+            
+            <a href="#" class="cta-button">Explore Courses & Start Your Free Trial Today</a>
+
+        </section>
+
+        <section id="contact-section">
+            <h2>Join Us Today</h2>
+            <p>At Great Wisdom Academy, we’re not just teaching code. We’re building confidence, careers, and creators of tomorrow.</p>
+            <p>Admissions Email: <a href="mailto:info@greatwisdomacademy.edu">wisdomu757@gmailçom</a> | Phone: **(+234) 08133041743**</p>
+            <p>&copy; 2025 Great Wisdom Academy. All rights reserved.</p>
+        </section>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'https://unpkg.com/three@0.158.0/build/three.module.js';
+        import { OrbitControls } from 'https://unpkg.com/three@0.158.0/examples/jsm/controls/OrbitControls.js';
+
+        // --- Setup ---
+        const canvas = document.querySelector('#three-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // --- Lights ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); 
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5);
+        directionalLight.position.set(5, 10, 5).normalize();
+        scene.add(directionalLight);
+
+        // --- 3D Object (Dodecahedron) ---
+        const geometry = new THREE.DodecahedronGeometry(5, 0);
+        
+        const colorGold = new THREE.Color(0xf7b731);
+        const colorBlue = new THREE.Color(0x1a3044);
+
+        const material = new THREE.MeshPhongMaterial({ 
+            color: colorGold.clone(), 
+            shininess: 100
+        }); 
+        const dodecahedron = new THREE.Mesh(geometry, material);
+        dodecahedron.rotation.set(0.5, 0.5, 0); 
+        dodecahedron.name = 'interactiveObject'; 
+        scene.add(dodecahedron);
+        
+        const wireframeMaterial = new THREE.MeshBasicMaterial({
+            color: 0xcccccc,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.15
+        });
+        const wireframe = new THREE.Mesh(geometry, wireframeMaterial);
+        wireframe.rotation.copy(dodecahedron.rotation);
+        scene.add(wireframe);
+
+        // --- Interactivity Setup ---
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+        let isHovered = false;
+
+        // User Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.enableZoom = false; 
+        controls.enablePan = false; 
+
+        camera.position.z = 25; 
+
+        function onMouseMove(event) {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+        }
+
+        // --- Animation Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(scene.children.filter(obj => obj.name === 'interactiveObject'));
+            
+            isHovered = intersects.length > 0;
+            
+            const targetColor = isHovered ? colorBlue : colorGold;
+            material.color.lerp(targetColor, 0.05);
+
+            dodecahedron.rotation.y += 0.003;
+            wireframe.rotation.y += 0.003;
+            controls.update();
+
+            renderer.render(scene, camera);
+        }
+
+        // --- Handle Window Resizing ---
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        }
+
+        // --- Event Listeners ---
+        window.addEventListener('resize', onWindowResize, false);
+        window.addEventListener('mousemove', onMouseMove, false);
+
+        // Start the animation
+        animate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Wisdom Academy - Developer Resources</title>
+    <meta name="description" content="Explore beginner roadmaps for learning to code, understand the differences between Frontend, Backend, and Full Stack development, and master Git and GitHub version control with Great Wisdom Academy's guides.">
+    <meta name="keywords" content="learn to code, frontend vs backend, full stack developer, git tutorial, github for beginners, web development paths, coding roadmap">
+    <meta name="author" content="Great Wisdom Academy Editorial Team">
+
+    <style>
+        /* General Reset & Typography */
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif; 
+            color: #ffffff;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background-color: #0d1a26; 
+            scroll-behavior: smooth; 
+        }
+
+        /* 3D Canvas Styling */
+        #three-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            background-color: #0d1a26; 
+        }
+
+        /* Content Container */
+        #content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation Bar */
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(13, 26, 38, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #navbar h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #f7b731; 
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        #navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        #navbar a:hover {
+            color: #f7b731;
+        }
+
+        /* Hero and Mission Sections (Kept concise) */
+        #hero-section {height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; background: linear-gradient(to top, rgba(13, 26, 38, 1) 0%, rgba(13, 26, 38, 0.2) 60%); padding-bottom: 50px;}
+        #hero-section h2 {font-size: 3.5em; margin-bottom: 10px; color: #f7b731;}
+        #hero-section p {font-size: 1.2em; color: #cccccc;}
+        #details-section {background-color: #1a3044; color: white; padding: 60px 50px; text-align: center;}
+        #details-section h2 {font-size: 2.5em; color: #f7b731; margin-bottom: 20px;}
+        #details-section p {max-width: 900px; margin: 0 auto 30px auto; line-height: 1.8; font-size: 1.1em;}
+
+        /* --- ARTICLES/BLOG SECTION --- */
+        #blog-section {
+            background-color: #ffffff; 
+            color: #333333;
+            padding: 60px 50px;
+        }
+        
+        .article-container {
+            max-width: 850px; 
+            margin: 0 auto;
+            border-bottom: 2px dashed #cccccc; /* Separator between articles */
+            padding-bottom: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .article-container:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        /* Article Typography */
+        .article-container h1 {
+            color: #0d1a26;
+            font-size: 2.8em;
+            border-bottom: 4px solid #f7b731;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .article-container h2 {
+            color: #1a3044;
+            font-size: 2em;
+            margin-top: 40px;
+            border-left: 5px solid #0d1a26;
+            padding-left: 15px;
+        }
+        
+        .article-container p, .article-container ul, .article-container pre {
+            line-height: 1.7;
+            font-size: 1.1em;
+            margin-bottom: 1.5em;
+        }
+
+        .article-meta {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+        }
+        
+        /* Code Block Styling */
+        pre {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 15px;
+            border-left: 3px solid #f7b731;
+            overflow-x: auto;
+            font-family: 'Consolas', monospace;
+            border-radius: 4px;
+        }
+
+        /* Call-to-Action Buttons */
+        .cta-button {
+            display: inline-block;
+            background-color: #f7b731;
+            color: #0d1a26;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #e5a92a;
+            transform: scale(1.05);
+        }
+        
+        /* Article Navigation Header */
+        #article-nav {
+            text-align: center;
+            padding: 20px;
+            background-color: #0d1a26;
+            color: white;
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+        #article-nav a {
+            color: #f7b731;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        #article-nav a:hover {
+            color: white;
+        }
+
+        /* Footer/Contact Section */
+        #contact-section {
+            background-color: #0d1a26;
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+            border-top: 2px solid #f7b731;
+        }
+
+        #contact-section a {
+            color: #f7b731;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="three-canvas"></canvas>
+
+    <div id="content">
+
+        <nav id="navbar">
+            <h1>GREAT WISDOM ACADEMY 🎓</h1>
+            <div>
+                <a href="#">Home</a>
+                <a href="about.html">About</a>
+                <a href="serives.html">Service</a>
+                <a href="mission.html">Mission</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+
+        <section id="hero-section">
+            <div id="hero-text">
+                <h2>Excellence in Education. Wisdom for Life.</h2>
+                <p>Explore our cutting-edge resources and discover your path in technology.</p>
+            </div>
+        </section>
+        
+        <section id="details-section">
+            <h2 id="mission">Our Core Mission: Sapientia et Veritas</h2>
+            <p>At Great Wisdom Academy, we foster intellectual curiosity, uphold moral integrity, and empower every student to achieve their personal best in a dynamic, globalized world.</p>
+        </section>
+
+
+        <section id="blog-section">
+            <h1 style="text-align: center; font-size: 3.5em; color: #0d1a26;">Developer Guides & Articles</h1>
+
+            <div id="article-nav">
+                Quick Jump: 
+                <a href="#article-1">Frontend vs Backend vs Full Stack</a> | 
+                <a href="#article-2">The Ultimate Beginner’s Guide to Git and GitHub</a>
+            </div>
+
+            <div class="article-container">
+                <header>
+                    <h1 id="article-1">Frontend vs Backend vs Full Stack: Which Path Should You Choose?</h1>
+                    <p class="article-meta">
+                        Content by Great Wisdom Academy Editorial Team | Read Time: ~9 minutes
+                        <br>Keywords: frontend vs backend, full stack developer, web development paths
+                    </p>
+                    <p>
+                        
+                        <br>
+                        *Caption: Frontend focuses on user experience, backend powers the engine — full stack blends both.*
+                    </p>
+                </header>
+
+                <p>When you decide to become a developer, one of the first questions is: What type of developer should I be? Should you design beautiful user interfaces? Should you manage databases and servers? Or should you learn both? This article explains the differences between frontend, backend, and full stack development — and helps you pick the right track.</p>
+
+                <h2>1. What is Frontend Development?</h2>
+                <p>Frontend is everything the user sees and interacts with.</p>
+                <ul>
+                    <li><strong>Languages:</strong> HTML, CSS, JavaScript</li>
+                    <li><strong>Frameworks/Libraries:</strong> React, Vue, Angular, Svelte</li>
+                    <li><strong>Tools:</strong> Figma, Chrome DevTools, Tailwind CSS</li>
+                    <li><strong>Example projects:</strong> Portfolio websites, dashboards, interactive apps</li>
+                    <li><strong>Skills:</strong> Design thinking, responsiveness, user interface (UI) and user experience (UX).</li>
+                </ul>
+
+                <h2>2. What is Backend Development?</h2>
+                <p>Backend is the “behind-the-scenes” logic and data handling.</p>
+                <ul>
+                    <li><strong>Languages:</strong> Python, Java, C#, PHP, JavaScript (Node.js)</li>
+                    <li><strong>Frameworks:</strong> Express.js, Django, Spring Boot, .NET</li>
+                    <li><strong>Tools:</strong> Databases (MySQL, MongoDB, PostgreSQL), APIs, cloud platforms</li>
+                    <li><strong>Example projects:</strong> Authentication systems, booking platforms, APIs</li>
+                    <li><strong>Skills:</strong> Data structures, algorithms, system design, security.</li>
+                </ul>
+
+                <h2>3. What is Full Stack Development?</h2>
+                <p>Full stack developers work across both frontend and backend.</p>
+                <ul>
+                    <li><strong>Languages:</strong> Mix of frontend + backend</li>
+                    <li><strong>Frameworks:</strong> MERN (MongoDB, Express, React, Node), MEAN, Django + React</li>
+                    <li><strong>Tools:</strong> Git, Docker, CI/CD, REST/GraphQL APIs</li>
+                    <li><strong>Example projects:</strong> E-commerce stores, social platforms, SaaS apps</li>
+                    <li><strong>Skills:</strong> Balance of breadth (across frontend & backend) and depth (some specialization).</li>
+                </ul>
+
+                <h2>4. Career Paths & Salaries</h2>
+                <ul>
+                    <li><strong>Frontend:</strong> UI/UX focus, average salaries competitive ($55k–95k entry-level in many markets).</li>
+                    <li><strong>Backend:</strong> More technical, often higher pay at scale ($65k–110k).</li>
+                    <li><strong>Full Stack:</strong> Highly flexible, in demand at startups and freelancing ($60k–120k).</li>
+                </ul>
+
+                <h2>5. How to Choose Your Path</h2>
+                <p>Ask yourself:</p>
+                <ul>
+                    <li>Do you love visuals and design? → <strong>Frontend.</strong></li>
+                    <li>Do you love logic, data, and problem-solving? → <strong>Backend.</strong></li>
+                    <li>Do you want versatility and freelancing opportunities? → <strong>Full stack.</strong></li>
+                </ul>
+                <p><strong>Tip:</strong> You can start as a frontend dev, then gradually learn backend to become full stack.</p>
+
+                <h2>Conclusion</h2>
+                <p>Choosing your path doesn’t lock you in forever. Many developers evolve into full stack after mastering one side. At Great Wisdom Academy, we guide you step by step — start with our free “Intro to Web Development” track and see which side excites you most.</p>
+                <a href="#" class="cta-button">Start Our Free Intro Track Now</a>
+
+                <p style="margin-top: 40px; font-weight: bold;">Q: Do I need to choose frontend or backend first?</p>
+                <p style="margin-top: -1em;">A: No — but focusing on one helps you progress faster.</p>
+                <p style="font-weight: bold;">Q: Is full stack harder than frontend or backend?</p>
+                <p style="margin-top: -1em;">A: It requires more breadth, but many learn it step by step.</p>
+
+            </div>
+
+
+            <div class="article-container">
+                <header>
+                    <h1 id="article-2">The Ultimate Beginner’s Guide to Git and GitHub</h1>
+                    <p class="article-meta">
+                        Content by Great Wisdom Academy Editorial Team | Read Time: ~10 minutes
+                        <br>Keywords: git tutorial, github for beginners, git commands, version control
+                    </p>
+                    <p>
+                        
+                        <br>
+                        *Caption: Git helps you track changes, GitHub lets you share and collaborate.*
+                    </p>
+                </header>
+
+                <p>Imagine writing a 200-page book without “undo” — that’s what coding without version control feels like. **Git** is a tool that saves snapshots of your work, and **GitHub** is the online platform where developers share and collaborate. This guide explains both, step by step.</p>
+
+                <h2>1. What is Git?</h2>
+                <p>Git is a **version control system**. It lets you:</p>
+                <ul>
+                    <li>Save snapshots (commits) of your project.</li>
+                    <li>Revert if something breaks.</li>
+                    <li>Work in parallel with teammates.</li>
+                </ul>
+
+                <h2>2. Installing Git</h2>
+                <p>First, download the software from git-scm.com. Then, set up your identity globally:</p>
+                <pre><code>git config --global user.name "Your Name"
+git config --global user.email "you@example.com"</code></pre>
+
+                <h2>3. First Git Workflow</h2>
+                <p>Inside a folder, these are the core steps:</p>
+                <pre><code>git init        # Start a local repository
+git add .       # Stage all files for the next snapshot
+git commit -m "first commit" # Save the snapshot with a message</code></pre>
+
+                <h2>4. Branching Basics</h2>
+                <p>Branches let you experiment with new features without risking your main code.</p>
+                <pre><code>git checkout -b new-feature # Create and switch to a new branch
+# ... work on code ...
+git checkout main           # Switch back to the main branch
+git merge new-feature       # Bring the feature branch changes into main</code></pre>
+
+                <h2>5. What is GitHub?</h2>
+                <p>GitHub is a **remote hosting platform** for your Git repositories. After creating an account and a new repo on GitHub (copy the URL), connect your local repo:</p>
+                <pre><code>git remote add origin YOUR_REPO_URL
+git push -u origin main</code></pre>
+
+                <h2>6. Collaboration Basics</h2>
+                <ul>
+                    <li>**Forks & Pull Requests (PRs):** How you propose changes to someone else's project.</li>
+                    <li>**Issues:** Used to track bugs or tasks for the project.</li>
+                    <li>**README.md:** The project's homepage, explaining what it is and how to use it.</li>
+                </ul>
+
+                <h2>7. Common Beginner Mistakes</h2>
+                <ul>
+                    <li>Forgetting to `git add .` before running `git commit`.</li>
+                    <li>Pushing large files (use a `.gitignore` file to skip them).</li>
+                    <li>Not running `git pull` before starting work, which can cause merge conflicts.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>Git and GitHub are must-have tools for every developer. Start by creating your first repo today and pushing a simple project. At Great Wisdom Academy, our courses include Git from day one — so you never lose progress on your journey.</p>
+                <a href="#" class="cta-button" style="background-color: #1a3044; color: white;">Explore Our Git & Version Control Course</a>
+
+                <p style="margin-top: 40px; font-weight: bold;">Q: Is Git the same as GitHub?</p>
+                <p style="margin-top: -1em;">A: No. Git is local version control software, while GitHub is an online hosting and collaboration platform.</p>
+                <p style="font-weight: bold;">Q: Do I need GitHub to use Git?</p>
+                <p style="margin-top: -1em;">A: No — Git works perfectly fine offline. GitHub simply adds collaboration and remote backup.</p>
+
+            </div>
+
+        </section>
+
+        <section id="contact-section">
+            <p>Ready to join us? Visit our campus or reach out!</p>
+            <p>Admissions Email: <a href="mailto:info@greatwisdomacademy.edu">wisdomu757@gmail.com</a> | Phone: **(234) 08133041743**</p>
+            <p>&copy; 2025 Great Wisdom Academy. All rights reserved.</p>
+        </section>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'https://unpkg.com/three@0.158.0/build/three.module.js';
+        import { OrbitControls } from 'https://unpkg.com/three@0.158.0/examples/jsm/controls/OrbitControls.js';
+
+        // --- Setup ---
+        const canvas = document.querySelector('#three-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // --- Lights ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); 
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5);
+        directionalLight.position.set(5, 10, 5).normalize();
+        scene.add(directionalLight);
+
+        // --- 3D Object ---
+        const geometry = new THREE.DodecahedronGeometry(5, 0);
+        
+        const colorGold = new THREE.Color(0xf7b731);
+        const colorBlue = new THREE.Color(0x1a3044);
+
+        const material = new THREE.MeshPhongMaterial({ 
+            color: colorGold.clone(), 
+            shininess: 100
+        }); 
+        const dodecahedron = new THREE.Mesh(geometry, material);
+        dodecahedron.rotation.set(0.5, 0.5, 0); 
+        dodecahedron.name = 'interactiveObject'; 
+        scene.add(dodecahedron);
+        
+        const wireframeMaterial = new THREE.MeshBasicMaterial({
+            color: 0xcccccc,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.15
+        });
+        const wireframe = new THREE.Mesh(geometry, wireframeMaterial);
+        wireframe.rotation.copy(dodecahedron.rotation);
+        scene.add(wireframe);
+
+        // --- Interactivity Setup ---
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+        let isHovered = false;
+
+        // User Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.enableZoom = false; 
+        controls.enablePan = false; 
+
+        camera.position.z = 25; 
+
+        function onMouseMove(event) {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+        }
+
+        // --- Animation Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(scene.children.filter(obj => obj.name === 'interactiveObject'));
+            
+            isHovered = intersects.length > 0;
+            
+            const targetColor = isHovered ? colorBlue : colorGold;
+            material.color.lerp(targetColor, 0.05);
+
+            dodecahedron.rotation.y += 0.003;
+            wireframe.rotation.y += 0.003;
+            controls.update();
+
+            renderer.render(scene, camera);
+        }
+
+        // --- Handle Window Resizing ---
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        }
+
+        // --- Event Listeners ---
+        window.addEventListener('resize', onWindowResize, false);
+        window.addEventListener('mousemove', onMouseMove, false);
+
+        // Start the animation
+        animate();
+    </script>
+</body>
+</html>

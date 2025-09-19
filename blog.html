@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Wisdom Academy - Developer Blog & Guides</title>
+    <meta name="description" content="Explore Great Wisdom Academy's developer blog featuring articles on why to learn to code in 2025, essential programming skills, career paths (Frontend, Backend, Full Stack), and guides to Git and GitHub.">
+    <meta name="keywords" content="why learn to code 2025, top tech skills, how to start coding, full stack developer, git tutorial, web development careers, python, javascript">
+    <meta name="author" content="Great Wisdom Academy Editorial Team">
+
+    <style>
+        /* General Reset & Typography */
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif; 
+            color: #ffffff;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            background-color: #0d1a26; 
+            scroll-behavior: smooth; 
+        }
+
+        /* 3D Canvas Styling (Kept for visual appeal) */
+        #three-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            background-color: #0d1a26; 
+        }
+
+        /* Content Container */
+        #content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation Bar */
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(13, 26, 38, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        #navbar h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #f7b731; 
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        #navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        #navbar a:hover {
+            color: #f7b731;
+        }
+
+        /* Hero Section (Customized for the Blog page) */
+        #hero-section {
+            background-color: #1a3044;
+            color: white;
+            padding: 80px 50px 40px;
+            text-align: center;
+            border-bottom: 5px solid #f7b731;
+        }
+        #hero-section h2 {
+            font-size: 3.5em; 
+            margin-bottom: 10px; 
+            color: #f7b731;
+        }
+        #hero-section p {
+            font-size: 1.2em; 
+            color: #cccccc;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+
+        /* --- ARTICLES/BLOG SECTION (Light Background) --- */
+        #blog-section {
+            background-color: #ffffff; 
+            color: #333333;
+            padding: 60px 50px;
+        }
+        
+        .article-container {
+            max-width: 850px; 
+            margin: 0 auto;
+            border-bottom: 2px dashed #cccccc; 
+            padding-bottom: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .article-container:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        /* Featured Article Styling */
+        .featured-article {
+            border: 4px solid #f7b731;
+            padding: 40px;
+            background-color: #fffaf0;
+            margin-bottom: 60px;
+            border-radius: 8px;
+        }
+        .featured-article h1 {
+            color: #0d1a26 !important;
+        }
+
+
+        /* Article Typography */
+        .article-container h1 {
+            color: #0d1a26;
+            font-size: 2.5em;
+            border-bottom: 4px solid #f7b731;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .article-container h2 {
+            color: #1a3044;
+            font-size: 1.8em;
+            margin-top: 40px;
+            border-left: 5px solid #0d1a26;
+            padding-left: 15px;
+        }
+        
+        .article-container p, .article-container ul, .article-container pre {
+            line-height: 1.7;
+            font-size: 1.1em;
+            margin-bottom: 1.5em;
+        }
+
+        .article-meta {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+        }
+        
+        /* Code Block Styling */
+        pre {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 15px;
+            border-left: 3px solid #f7b731;
+            overflow-x: auto;
+            font-family: 'Consolas', monospace;
+            border-radius: 4px;
+        }
+        
+        /* List Styling in Articles */
+        .article-container ul {
+            padding-left: 40px;
+            list-style-type: square;
+        }
+        .article-container li {
+            margin-bottom: 10px;
+        }
+
+        /* Call-to-Action Buttons */
+        .cta-button {
+            display: inline-block;
+            background-color: #f7b731;
+            color: #0d1a26;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #e5a92a;
+            transform: scale(1.05);
+        }
+        
+        /* Article Navigation Header */
+        #article-nav {
+            text-align: center;
+            padding: 20px;
+            background-color: #0d1a26;
+            color: white;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #article-nav a {
+            color: #f7b731;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            white-space: nowrap;
+            display: inline-block;
+        }
+        #article-nav a:hover {
+            color: white;
+        }
+
+        /* Footer/Contact Section */
+        #contact-section {
+            background-color: #0d1a26;
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+            border-top: 2px solid #f7b731;
+        }
+
+        #contact-section a {
+            color: #f7b731;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="three-canvas"></canvas>
+
+    <div id="content">
+
+        <nav id="navbar">
+            <h1>GREAT WISDOM ACADEMY 🎓</h1>
+            <div>
+                <a href="index.html">Home</a>
+                <a href="mission.html">Mission</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+
+        <section id="hero-section">
+            <h2>The Great Wisdom Academy Developer Blog</h2>
+            <p>Your source for career guides, technical tutorials, and insights into the future of technology.</p>
+        </section>
+
+
+        <section id="blog-section">
+            
+            <div id="article-nav">
+                Quick Jump: 
+                <a href="#article-6">Why Code in 2025</a> |
+                <a href="#article-7">Start Coding</a> |
+                <a href="#article-8">Top 7 Skills</a> |
+                <a href="#article-1">Frontend vs Backend</a> |
+                <a href="#article-2">Git Guide</a> |
+                <a href="#article-3">Best Investment</a> |
+                <a href="#article-4">Top 5 Languages</a> |
+                <a href="#article-5">First Website</a>
+            </div>
+
+            <div class="article-container featured-article">
+                <header>
+                    <h1 id="article-6">🚀 5 Reasons Why Learning to Code in 2025 is a Game-Changer</h1>
+                    <p class="article-meta">FEATURED GUIDE | Published: 2025</p>
+                </header>
+                <p>Technology is moving faster than ever. Artificial intelligence, web apps, and automation are shaping every industry. In this digital age, one skill stands out as a superpower: **coding**. If you’ve been thinking about learning to code, **2025 is the perfect time to start**.</p>
+
+                <h2>1. Coding is the Language of the Future</h2>
+                <p>Just like English became a global language, coding is becoming the universal language of technology. Knowing how to code means you can communicate with machines — and **shape how the world works**.</p>
+
+                <h2>2. Unlimited Career Opportunities</h2>
+                <p>Companies in every field need developers. By learning to code, you unlock access to:</p>
+                <ul>
+                    <li>High-demand jobs across the world 🌍</li>
+                    <li>Freelancing and remote work opportunities 💻</li>
+                    <li>The chance to build your own apps and startups 🚀</li>
+                </ul>
+
+                <h2>3. Coding Improves Problem-Solving Skills</h2>
+                <p>Coding teaches you to break problems into smaller steps, test solutions, and keep improving. These problem-solving skills go beyond tech — they make you **sharper in business, academics, and life**.</p>
+
+                <h2>4. You Can Build Anything You Imagine</h2>
+                <p>Want to create a website, mobile app, or even your own AI assistant? Coding makes your ideas real. Instead of waiting for someone else, you become the **creator**.</p>
+
+                <h2>5. Affordable Learning Has Never Been Easier</h2>
+                <p>Today, platforms like Great Wisdom Academy make coding accessible to everyone — with beginner-friendly lessons, projects, and mentorship.</p>
+
+                <p>2025 isn’t just another year. It’s your chance to join the digital revolution. By learning to code today, you’re not just preparing for a career — you’re preparing for the future.</p>
+                <a href="#" class="cta-button">👉 Start Your Free Intro to Web Development</a>
+            </div>
+
+            <div class="article-container">
+                <header>
+                    <h1 id="article-7">How to Start Coding With Zero Experience</h1>
+                    <p class="article-meta">Getting Started Guide</p>
+                </header>
+                <p>Many people think coding is only for “tech geniuses.” The truth? **Anyone can learn to code** — even if you’ve never touched a computer beyond social media. Here’s a simple roadmap to start coding from scratch.</p>
+
+                <h2>Step 1: Choose One Language</h2>
+                <p>Don’t overwhelm yourself. Start with **HTML, CSS, and JavaScript** for websites, or pick **Python** for its versatility and easy-to-learn nature.</p>
+
+                <h2>Step 2: Learn by Doing</h2>
+                <p>Write code, even if it’s messy at first. Build small projects immediately:</p>
+                <ul>
+                    <li>A personal homepage 🌐</li>
+                    <li>A calculator app ➕➖</li>
+                    <li>A simple to-do list ✅</li>
+                </ul>
+
+                <h2>Step 3: Join a Community</h2>
+                <p>Coding can be lonely. Find other learners in forums, Discord groups, or platforms like Great Wisdom Academy where you can **share progress and ask questions**.</p>
+
+                <h2>Step 4: Stay Consistent</h2>
+                <p>Coding is like going to the gym — results come from **daily practice**. Even 30 minutes a day is enough to grow your skills.</p>
+            </div>
+
+            <div class="article-container">
+                <header>
+                    <h1 id="article-8">Top 7 In-Demand Tech Skills in 2025</h1>
+                    <p class="article-meta">Career Advice</p>
+                </header>
+                <p>The tech world changes quickly, but some skills are always in demand. If you want a career in technology, here are the top 7 skills companies are looking for in 2025.</p>
+
+                <ul>
+                    <li>**Web Development** – HTML, CSS, JavaScript, React. (The foundation of the digital world.)</li>
+                    <li>**Python Programming** – For data, AI, and automation.</li>
+                    <li>**Cloud Computing** – AWS, Azure, Google Cloud. (Essential for modern infrastructure.)</li>
+                    <li>**Cybersecurity** – Protecting systems from hackers.</li>
+                    <li>**AI & Machine Learning** – Building smart applications.</li>
+                    <li>**Mobile App Development** – iOS and Android apps.</li>
+                    <li>**UI/UX Design** – Making apps beautiful and easy to use.</li>
+                </ul>
+                <p>Learning even one of these skills can open doors to high-paying jobs and freelancing opportunities.</p>
+            </div>
+            
+            <div class="article-container">
+                <header>
+                    <h1 id="article-1">Frontend vs Backend vs Full Stack: Which Path Should You Choose?</h1>
+                    <p class="article-meta">Career Tracks</p>
+                </header>
+                <p>This guide explains the differences between **frontend** (user interface), **backend** (data and logic), and **full stack** (both), helping you pick the right track for your career goals.</p>
+
+                <p style="font-weight: bold; margin-top: 20px;">Key Differences:</p>
+                <ul>
+                    <li>**Frontend:** Focuses on visuals and design (HTML, CSS, JavaScript, React).</li>
+                    <li>**Backend:** Focuses on logic and data (Python, Java, Node.js, Databases).</li>
+                    <li>**Full Stack:** Offers versatility and high demand by combining both sides.</li>
+                </ul>
+                <a href="#" class="cta-button">Read the Full Career Path Article</a>
+            </div>
+
+            <div class="article-container">
+                <header>
+                    <h1 id="article-2">The Ultimate Beginner’s Guide to Git and GitHub</h1>
+                    <p class="article-meta">Essential Developer Tools</p>
+                </header>
+                <p>Git is a **version control system** that saves snapshots of your work. GitHub is the **online platform** for sharing and collaboration. Every developer must master these tools.</p>
+                <pre><code>git init        # Start a local repo
+git add .       # Stage files
+git commit -m "commit message" # Save snapshot
+git push        # Send changes to GitHub</code></pre>
+                <a href="#" class="cta-button" style="background-color: #1a3044; color: white;">Master Version Control Today</a>
+            </div>
+            
+            <div class="article-container">
+                <header>
+                    <h1 id="article-3">How Coding Can Change Your Life (Financial Freedom, Growth, Confidence)</h1>
+                    <p class="article-meta">Motivation & Life Skills</p>
+                </header>
+                <p>Learning to code isn't just about jobs; it's about transforming how you think, create, and live. It provides **financial freedom** through remote work, enables **creative power** to bring ideas to life, and dramatically boosts your **confidence**.</p>
+
+                <a href="#" class="cta-button">Unlock Your Potential</a>
+            </div>
+            
+            <div class="article-container">
+                <header>
+                    <h1 id="article-4">Top 5 Programming Languages Every Beginner Should Learn</h1>
+                    <p class="article-meta">Language Roadmap</p>
+                </header>
+                <p>The best place to start? We recommend **Python** (simple, versatile) or **JavaScript** (the language of the web). Other essential languages include HTML/CSS (foundation), Java (enterprise), and C# (games, apps).</p>
+
+                <p>The key step is: **start coding today**.</p>
+            </div>
+            
+            <div class="article-container">
+                <header>
+                    <h1 id="article-5">How to Build Your First Website (Step by Step)</h1>
+                    <p class="article-meta">First Project Tutorial</p>
+                </header>
+                <p>Your first website is a milestone. This tutorial guides you through creating the basic `index.html`, adding `style.css` for design, and incorporating a simple `script.js` for interactivity. Double-click to open, and you've built your first project! 🎉</p>
+                <a href="#" class="cta-button">See the Code Examples</a>
+            </div>
+
+        </section>
+
+        <section id="contact-section">
+            <h2>Connect With Us</h2>
+            <p>Admissions Email: <a href="mailto:info@greatwisdomacademy.edu">wisdomu757@gmail.com</a> | Phone: **(234) 08133041743**</p>
+            <p>&copy; 2025 Great Wisdom Academy. All rights reserved.</p>
+        </section>
+    </div>
+
+    <script type="module">
+        import * as THREE from 'https://unpkg.com/three@0.158.0/build/three.module.js';
+        import { OrbitControls } from 'https://unpkg.com/three@0.158.0/examples/jsm/controls/OrbitControls.js';
+
+        // --- Setup ---
+        const canvas = document.querySelector('#three-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // --- Lights ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); 
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5);
+        directionalLight.position.set(5, 10, 5).normalize();
+        scene.add(directionalLight);
+
+        // --- 3D Object (Dodecahedron) ---
+        const geometry = new THREE.DodecahedronGeometry(5, 0);
+        
+        const colorGold = new THREE.Color(0xf7b731);
+        const colorBlue = new THREE.Color(0x1a3044);
+
+        const material = new THREE.MeshPhongMaterial({ 
+            color: colorGold.clone(), 
+            shininess: 100
+        }); 
+        const dodecahedron = new THREE.Mesh(geometry, material);
+        dodecahedron.rotation.set(0.5, 0.5, 0); 
+        dodecahedron.name = 'interactiveObject'; 
+        scene.add(dodecahedron);
+        
+        const wireframeMaterial = new THREE.MeshBasicMaterial({
+            color: 0xcccccc,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.15
+        });
+        const wireframe = new THREE.Mesh(geometry, wireframeMaterial);
+        wireframe.rotation.copy(dodecahedron.rotation);
+        scene.add(wireframe);
+
+        // --- Interactivity Setup ---
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+        let isHovered = false;
+
+        // User Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.enableZoom = false; 
+        controls.enablePan = false; 
+
+        camera.position.z = 25; 
+
+        function onMouseMove(event) {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+        }
+
+        // --- Animation Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(scene.children.filter(obj => obj.name === 'interactiveObject'));
+            
+            isHovered = intersects.length > 0;
+            
+            const targetColor = isHovered ? colorBlue : colorGold;
+            material.color.lerp(targetColor, 0.05);
+
+            dodecahedron.rotation.y += 0.003;
+            wireframe.rotation.y += 0.003;
+            controls.update();
+
+            renderer.render(scene, camera);
+        }
+
+        // --- Handle Window Resizing ---
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        }
+
+        // --- Event Listeners ---
+        window.addEventListener('resize', onWindowResize, false);
+        window.addEventListener('mousemove', onMouseMove, false);
+
+        // Start the animation
+        animate();
+    </script>
+</body>
+</html>
